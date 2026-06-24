@@ -1,0 +1,141 @@
+/* 
+ * Eyecatch Table Designs 
+ * Modern, premium styles for tables across the application.
+ */
+
+:root {
+    --eyecatch-primary: #002147;
+    --eyecatch-secondary: #004e92;
+    --eyecatch-accent: #ffcc00;
+    --eyecatch-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --eyecatch-hover-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --eyecatch-radius: 12px;
+}
+
+/* Base Eyecatch Table Container */
+.eyecatch-table-container {
+    background: #ffffff;
+    border-radius: var(--eyecatch-radius);
+    box-shadow: var(--eyecatch-shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0, 33, 71, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eyecatch-table-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--eyecatch-hover-shadow);
+}
+
+/* Table Elements */
+.eyecatch-table, 
+.premium-table, 
+.icc-table, 
+.coe-table, 
+.attendance-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Headers */
+.eyecatch-table th, 
+.premium-table th, 
+.icc-table th, 
+.coe-table th, 
+.attendance-table th {
+    background: linear-gradient(135deg, var(--eyecatch-primary) 0%, var(--eyecatch-secondary) 100%);
+    color: #ffffff;
+    padding: 18px 20px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    border-bottom: 3px solid var(--eyecatch-accent);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Cells */
+.eyecatch-table td, 
+.premium-table td, 
+.icc-table td, 
+.coe-table td, 
+.attendance-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f4f8;
+    color: #334155;
+    vertical-align: middle;
+    transition: background 0.2s ease;
+}
+
+/* Row Hover */
+.eyecatch-table tr:hover td, 
+.premium-table tr:hover td, 
+.icc-table tr:hover td, 
+.coe-table tr:hover td, 
+.attendance-table tr:hover td {
+    background-color: #f8fafc;
+    color: var(--eyecatch-primary);
+}
+
+/* Last Row */
+.eyecatch-table tr:last-child td, 
+.premium-table tr:last-child td, 
+.icc-table tr:last-child td, 
+.coe-table tr:last-child td, 
+.attendance-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Striped Rows (Optional/Enhanced) */
+.eyecatch-table tr:nth-child(even) td, 
+.premium-table tr:nth-child(even) td {
+    background-color: #fafbfc;
+}
+
+/* Action Buttons in Tables */
+.eyecatch-table .btn-action, 
+.premium-table .btn-action {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.eyecatch-table .btn-action:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+/* Glassmorphism Table Variation */
+.glass-table {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Table Wrapper */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--eyecatch-radius);
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+    .eyecatch-table-container {
+        padding: 10px;
+    }
+    
+    .eyecatch-table th, 
+    .eyecatch-table td {
+        padding: 12px 15px;
+        font-size: 0.8rem;
+    }
+}

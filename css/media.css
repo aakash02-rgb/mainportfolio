@@ -1,0 +1,857 @@
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10% !important;
+    transform: translateY(-50%);
+    z-index: 1001;
+    padding: 8px;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+}
+
+.mobile-menu-popup {
+    display: none;
+}
+
+
+#site-header {
+    position: relative;
+    min-height: 60px;
+
+}
+
+
+@media (max-width: 991px) {
+
+
+    #main-nav,
+    .quick-links-container,
+    .fee-buttons {
+        display: none !important;
+    }
+
+
+    .top-bar {
+        display: flex !important;
+        flex-direction: column;
+
+        align-items: center;
+        padding: 5px;
+        font-size: 0.8rem;
+        height: auto;
+
+        text-align: center;
+    }
+
+    .top-bar .top-links,
+    .top-bar .top-social {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+
+    #top-marquee {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    /* Show Toggle */
+    .mobile-menu-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        right: 15px;
+        top: 15px;
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        transform: none;
+        border-radius: 8px;
+        background-color: var(--primary-blue, #002147);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 1002;
+    }
+
+    .mobile-menu-toggle i {
+        color: var(--accent-yellow, #ffcc00);
+        font-size: 1.5rem;
+    }
+
+    .mobile-menu-toggle:hover {
+        background-color: rgba(0, 33, 71, 0.9);
+        transform: scale(1.05);
+    }
+
+    /* Popup Overlay */
+    .mobile-menu-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 33, 71, 0.98);
+        /* Primary Blue with opacity */
+        z-index: 11000;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        backdrop-filter: blur(5px);
+        overflow: hidden;
+    }
+
+    .mobile-menu-popup.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Close Button */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 11001;
+    }
+
+    /* Content Container */
+    .mobile-menu-content {
+        flex: 1;
+        padding: 60px 20px 40px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Tile Grid */
+    .mobile-tiles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Columns by default */
+        gap: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Responsive Grid for Small Screens */
+    @media (max-width: 380px) {
+        .mobile-tiles-grid {
+            grid-template-columns: 1fr;
+            /* 1 Column for very small screens */
+            gap: 10px;
+        }
+
+        .mobile-tile {
+            padding: 15px;
+            /* Compact padding */
+            flex-direction: row;
+            /* Horizontal layout for space efficiency? Or stick to vertical? 
+                                    Let's try horizontal for 1-col view to look like list but tiled */
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .mobile-menu-toggle {
+            right: 8px;
+            bottom: 12px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Individual Tile */
+    .mobile-tile {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .mobile-tile:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .mobile-tile i {
+        font-size: 2rem;
+        color: var(--accent-yellow, #ffcc00);
+        margin-bottom: 5px;
+    }
+
+    .mobile-tile span {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Submenu Layout */
+    .mobile-submenu-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+
+    .mobile-submenu-header h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--accent-yellow, #ffcc00);
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .btn-back {
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .btn-back:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* List Items */
+    .mobile-submenu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-submenu-list li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-submenu-list li a {
+        display: block;
+        padding: 12px 10px;
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: padding-left 0.2s;
+    }
+
+    .mobile-submenu-list li a:hover {
+        padding-left: 15px;
+        color: var(--accent-yellow, #ffcc00);
+    }
+
+    /* List Headers (Mega Menu Titles) */
+    .mobile-list-header {
+        padding: 15px 5px 5px;
+        color: #aaa;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .mobile-list-header.sub-header {
+        padding-left: 15px;
+        font-size: 0.8rem;
+        color: #888;
+    }
+
+    .mobile-submenu-list li.has-nested-mobile a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-submenu-list li.has-nested-mobile i {
+        font-size: 0.8rem;
+        color: var(--accent-yellow, #ffcc00);
+        opacity: 0.7;
+    }
+}
+
+/* --- Responsive Employee Tables (Card View - Premium Design) --- */
+@media (max-width: 768px) {
+
+    /* Target Staff Tables */
+    .staff-table,
+    .admin-staff-table,
+    .coe-table,
+    .icc-table {
+        display: block;
+        width: 100%;
+    }
+
+    /* Hide Table Head */
+    .staff-table thead,
+    .admin-staff-table thead,
+    .coe-table thead,
+    .icc-table thead {
+        display: none;
+    }
+
+    /* Hide Serial Number in Mobile View */
+    .staff-table td[data-label="Sl. No"],
+    .staff-table td[data-label="S.No"],
+    .admin-staff-table td[data-label="Sl. No"],
+    .admin-staff-table td[data-label="S.No"],
+    .coe-table td[data-label="Sl. No"],
+    .coe-table td[data-label="S.No"],
+    .icc-table td[data-label="Sl. No"],
+    .icc-table td[data-label="S.No"] {
+        display: none !important;
+    }
+
+    .staff-table tbody,
+    .admin-staff-table tbody,
+    .coe-table tbody,
+    .icc-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        /* Spacing between cards */
+        width: 100%;
+        padding: 10px 5px;
+    }
+
+    /* Rows become Premium Cards */
+    .staff-table tr,
+    .admin-staff-table tr,
+    .coe-table tr,
+    .icc-table tr {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        /* Deep, soft shadow */
+        position: relative;
+        overflow: hidden;
+        /* For header effect */
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .staff-table tr:hover,
+    .admin-staff-table tr:hover,
+    .npc-table tr:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Decorative Header Background */
+    .staff-table tr::before,
+    .admin-staff-table tr::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        /* Color splash area */
+        background: linear-gradient(135deg, #002147, #004a99);
+        /* Brand Blue Gradient */
+        z-index: 0;
+    }
+
+    /* Cells Styling */
+    .staff-table td,
+    .admin-staff-table td,
+    .coe-table td,
+    .icc-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        text-align: right;
+        width: 100%;
+        font-size: 0.95rem;
+        color: #444;
+        position: relative;
+        z-index: 1;
+        /* Above background */
+        background: transparent;
+    }
+
+    .staff-table td:last-child,
+    .admin-staff-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 20px;
+        justify-content: center;
+        /* Center actions */
+    }
+
+    /* Data Labels */
+    .staff-table td::before,
+    .admin-staff-table td::before,
+    .coe-table td::before,
+    .icc-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #888;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-align: left;
+    }
+
+    /* --- Featured Photo Section --- */
+    .col-photo {
+        order: -1;
+        border-bottom: none !important;
+        justify-content: center !important;
+        padding: 25px 0 10px !important;
+        /* Adjust for header bg */
+        width: 100% !important;
+        background: transparent !important;
+    }
+
+    .col-photo::before {
+        content: none !important;
+    }
+
+    .col-photo img {
+        width: 110px !important;
+        height: 110px !important;
+        border-radius: 50% !important;
+        border: 4px solid #fff;
+        /* White border to separate from bg */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        object-fit: cover;
+        position: relative;
+        z-index: 2;
+        background: #fff;
+    }
+
+    /* Name Section */
+    .name-cell {
+        font-size: 1.35rem !important;
+        color: #002147 !important;
+        font-weight: 800 !important;
+        border-bottom: none !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 5px 20px 15px !important;
+        margin-bottom: 0;
+        flex-direction: column;
+        /* For stacking "View Profile" link */
+        gap: 5px;
+    }
+
+    .name-cell::before {
+        display: none;
+    }
+
+    .name-cell strong {
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    /* View Profile Link Styling */
+    .view-profile-link {
+        font-size: 0.85rem !important;
+        color: #ffcc00 !important;
+        /* Accent color */
+        background: #002147;
+        padding: 5px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        margin-top: 5px;
+        display: inline-block;
+    }
+
+    /* Action Buttons (Admin) */
+    .action-btns {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        flex: 1;
+        max-width: 120px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-edit {
+        background: #002147;
+        color: white;
+    }
+
+    .btn-delete {
+        background: white;
+        color: #dc3545;
+        border: 1px solid #dc3545;
+    }
+
+    /* Small Screen Specifics */
+    @media (max-width: 380px) {
+        .staff-table td {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+
+        .staff-table td::before {
+            margin-bottom: 0;
+        }
+
+        .name-cell {
+            font-size: 1.2rem !important;
+        }
+    }
+}
+
+/* ========================================
+   GLOBAL MOBILE RESPONSIVENESS
+   (Excluding Table Components)
+   ======================================== */
+
+/* --- General Layout & Typography (Mobile) --- */
+@media (max-width: 768px) {
+
+    /* Prevent horizontal overflow */
+    body,
+    html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* General container adjustments */
+    .subjects-container,
+    .dashboard-view,
+    .admin-table-container {
+        padding: 15px 10px;
+        margin: 20px auto;
+    }
+
+    /* Typography scaling */
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* --- Slider / Hero Section --- */
+    .slider-container {
+        max-height: 300px;
+    }
+
+    .slider-wrapper {
+        height: 300px;
+    }
+
+    .slide-content {
+        left: 5%;
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .slide-content h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 10px;
+    }
+
+    .slide-content p {
+        font-size: 0.95rem !important;
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* --- Info Banner Section --- */
+    .info-banner {
+        flex-direction: column;
+        border-bottom: 3px solid #8B0000;
+    }
+
+    .info-col {
+        width: 100% !important;
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .info-col:last-child {
+        border-bottom: none;
+    }
+
+    .timing-col,
+    .quote-col,
+    .order-col {
+        width: 100% !important;
+    }
+
+    .calendar-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* --- Department Grid --- */
+    .dept-grid {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+
+    .dept-separator {
+        display: none;
+    }
+
+    .dept-column {
+        padding: 0;
+        margin-bottom: 25px;
+    }
+
+    .dept-column h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .dept-link {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+
+    /* --- Forms & Inputs --- */
+    .auth-container,
+    .attendance-container {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .edit-input {
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+        padding: 12px;
+    }
+
+    .btn-auth,
+    .btn-add,
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    /* --- Modal Adjustments --- */
+    .modal-content,
+    .admin-modal .modal-content {
+        width: 95%;
+        max-width: none;
+        padding: 20px 15px;
+        max-height: 90vh;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+
+    /* --- Action Buttons --- */
+    .action-btns {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* --- Admin Table Headers --- */
+    .admin-table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .admin-table-header h2 {
+        font-size: 1.3rem;
+    }
+
+    /* --- COE Header --- */
+    .coe-header {
+        flex-direction: column;
+        text-align: center;
+        margin-left: 0;
+        padding: 20px 15px;
+    }
+
+    .coe-img-wrapper {
+        width: 140px;
+        height: 180px;
+    }
+
+    .coe-details h2 {
+        font-size: 1.3rem;
+    }
+
+    .coe-details p {
+        font-size: 1rem;
+    }
+
+    /* --- Quick Links --- */
+    .quick-links-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .quick-link-item {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* --- Fee Buttons --- */
+    .fee-buttons,
+    .header-btns {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .fee-btn,
+    .header-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+
+    /* --- Searchable Dropdown --- */
+    .select-dropdown {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    /* --- Status Messages --- */
+    .status-msg {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+}
+
+/* --- Extra Small Devices (320px - 480px) --- */
+@media (max-width: 480px) {
+
+    /* Further typography reduction */
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* Slider adjustments */
+    .slider-container,
+    .slider-wrapper {
+        max-height: 250px;
+        height: 250px;
+    }
+
+    .slide-content h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .slide-content p {
+        font-size: 0.85rem !important;
+    }
+
+    /* Compact padding */
+    .subjects-container,
+    .dashboard-view,
+    .admin-table-container,
+    .auth-container,
+    .attendance-container {
+        padding: 10px 8px;
+        margin: 15px 5px;
+    }
+
+    /* Button sizing */
+    .btn-auth,
+    .btn-add,
+    .btn-action,
+    .fee-btn,
+    .header-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 15px 10px;
+    }
+
+    /* Info banner text */
+    .info-col h3 {
+        font-size: 14px;
+    }
+
+    .timing-details p,
+    .quote-content {
+        font-size: 12px;
+    }
+}
