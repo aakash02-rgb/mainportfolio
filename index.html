@@ -609,9 +609,11 @@
         transform: perspective(800px) rotateX(6deg) translateY(30px) scale(0.98);
         margin-bottom: 1rem;
       }
+
       .home-3d-section.opened {
         transform: perspective(800px) rotateX(0deg) translateY(0) scale(1);
       }
+
       .home-3d-section section {
         padding: 4rem 1rem 3rem !important;
       }
@@ -2332,11 +2334,13 @@
               development roles, Node.js projects, freelance work, and technical event coordination.</p>
 
             <div class="contact-grid">
-              <div class="contact-item">
-                <div class="contact-item-icon" style="color:var(--c1)"><i class="fas fa-envelope"></i></div>
-                <div class="contact-item-label">Email</div>
-                <div class="contact-item-val">massaakash02@gmail.com</div>
-              </div>
+              <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=aakashmadhavan80@gmail.com" target="_blank" style="text-decoration:none;color:inherit;display:block;">
+                <div class="contact-item">
+                  <div class="contact-item-icon" style="color:var(--c1)"><i class="fas fa-envelope"></i></div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-val" style="color:var(--c1)">aakashmadhavan80@gmail.com</div>
+                </div>
+              </a>
               <div class="contact-item">
                 <div class="contact-item-icon" style="color:var(--c4)"><i class="fas fa-phone-alt"></i></div>
                 <div class="contact-item-label">Phone</div>
@@ -2355,8 +2359,8 @@
             </div>
 
             <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.4rem;margin-bottom:1rem;">
-              <a class="clink main" href="mailto:massaakash02@gmail.com"><i class="fas fa-envelope"></i>
-                massaakash02@gmail.com</a>
+              <a class="clink main" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=aakashmadhavan80@gmail.com" target="_blank"><i class="fas fa-envelope"></i>
+                aakashmadhavan80@gmail.com</a>
               <a class="clink" href="https://wa.me/919894988146?text=Hi%20Aakash,%20I%20saw%20your%20portfolio!"
                 target="_blank"
                 style="color:#25D366;border-color:rgba(37,211,102,0.3);background:rgba(37,211,102,0.05);"><i
@@ -2373,19 +2377,44 @@
             </div>
 
             <div class="contact-form-wrap">
-              <h3 style="font-family:'Syne',sans-serif;margin-bottom:1rem;font-size:1.4rem;text-align:center;"><i
-                  class="fas fa-envelope" style="color:var(--c1);margin-right:10px;"></i> Get in Touch</h3>
-              <p style="color:var(--muted);text-align:center;margin-bottom:1.8rem;line-height:1.7;">
-                Send me an email directly at
-                <a href="mailto:massaakash02@gmail.com" style="color:var(--c1);font-weight:600;text-decoration:none;">massaakash02@gmail.com</a>
-                or use the button below.
+              <h3 style="font-family:'Syne',sans-serif;margin-bottom:0.5rem;font-size:1.4rem;text-align:center;">
+                <i class="fas fa-envelope" style="color:var(--c1);margin-right:10px;"></i> Get in Touch
+              </h3>
+              <p style="color:var(--muted);margin-bottom:2rem;line-height:1.7;text-align:center;">
+                Feel free to reach out anytime — I'll get back to you as soon as possible.
               </p>
-              <div style="text-align:center;">
-                <a href="mailto:massaakash02@gmail.com" class="btn-primary"
-                  style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:1.05rem;padding:1.2rem 2.5rem;border-radius:12px;">
-                  <i class="fas fa-paper-plane"></i> Send Email
-                </a>
-              </div>
+              
+              <form id="contact-form">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-bottom: 1.2rem;">
+                  <div>
+                    <label style="display:block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted); font-weight: 500;">Your Name</label>
+                    <input type="text" id="form-name" name="name" class="form-input" placeholder="Aakash M" required style="margin-bottom: 0;">
+                  </div>
+                  <div>
+                    <label style="display:block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted); font-weight: 500;">Your Email</label>
+                    <input type="email" id="form-email" name="email" class="form-input" placeholder="example@gmail.com" required style="margin-bottom: 0;">
+                  </div>
+                </div>
+                
+                <div style="margin-bottom: 1.2rem;">
+                  <label style="display:block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted); font-weight: 500;">Subject</label>
+                  <input type="text" id="form-subject" name="subject" class="form-input" placeholder="Collaboration Project" required style="margin-bottom: 0;">
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                  <label style="display:block; margin-bottom: 0.5rem; font-size: 0.85rem; color: var(--muted); font-weight: 500;">Message</label>
+                  <textarea id="form-message" name="message" class="form-input" rows="5" placeholder="Hi Aakash, I would love to work with you on..." required style="margin-bottom: 0; resize: vertical; min-height: 120px;"></textarea>
+                </div>
+
+                <div style="text-align:center;">
+                  <button type="submit" class="btn-primary" id="form-submit-btn"
+                    style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:1.05rem;padding:1.2rem 2.5rem;border-radius:12px;border:none;cursor:pointer;width:100%;justify-content:center;font-weight:600;transition: all 0.3s;">
+                    <i class="fas fa-paper-plane" id="submit-icon"></i> <span id="submit-text">Send Message</span>
+                  </button>
+                </div>
+                
+                <div id="form-status" style="margin-top: 1.2rem; text-align: center; font-size: 0.95rem; font-weight: 500; display: none; padding: 1rem; border-radius: 8px;"></div>
+              </form>
             </div>
           </div>
         </div>
@@ -2685,7 +2714,7 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('opened');
-            
+
             // Stagger reveal animations inside the section once it opens in 3D
             const reveals = entry.target.querySelectorAll('.reveal, .reveal-left, .reveal-right');
             reveals.forEach((el, i) => {
@@ -2802,6 +2831,87 @@
       const el = pageEls[p];
       if (el) pageObserver.observe(el, { attributes: true, attributeFilter: ['class'] });
     });
+
+    // Contact Form Submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('form-submit-btn');
+        const submitIcon = document.getElementById('submit-icon');
+        const submitText = document.getElementById('submit-text');
+        const statusDiv = document.getElementById('form-status');
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.8";
+        submitIcon.className = "fas fa-spinner fa-spin";
+        submitText.textContent = "Sending...";
+        statusDiv.style.display = "none";
+        
+        const formData = {
+          name: document.getElementById('form-name').value,
+          email: document.getElementById('form-email').value,
+          subject: document.getElementById('form-subject').value,
+          message: document.getElementById('form-message').value
+        };
+        
+        fetch("https://formsubmit.co/ajax/aakashmadhavan80@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Success
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "";
+          submitIcon.className = "fas fa-check";
+          submitText.textContent = "Sent Successfully!";
+          submitBtn.style.background = "#28a745"; // Success green color
+          
+          statusDiv.style.display = "block";
+          statusDiv.style.color = "#28a745";
+          statusDiv.style.background = "rgba(40, 167, 69, 0.1)";
+          statusDiv.style.border = "1px solid rgba(40, 167, 69, 0.2)";
+          statusDiv.innerHTML = "<i class='fas fa-check-circle'></i> Thank you! Your message has been sent. First-time users please check your email inbox to confirm/activate submissions.";
+          
+          contactForm.reset();
+          
+          // Reset button style after 5 seconds
+          setTimeout(() => {
+            submitIcon.className = "fas fa-paper-plane";
+            submitText.textContent = "Send Message";
+            submitBtn.style.background = ""; // Reset to default theme color
+          }, 5000);
+        })
+        .catch(error => {
+          // Error
+          console.error("Error submitting contact form:", error);
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "";
+          submitIcon.className = "fas fa-exclamation-triangle";
+          submitText.textContent = "Error Sending";
+          submitBtn.style.background = "#dc3545"; // Error red color
+          
+          statusDiv.style.display = "block";
+          statusDiv.style.color = "#dc3545";
+          statusDiv.style.background = "rgba(220, 53, 69, 0.1)";
+          statusDiv.style.border = "1px solid rgba(220, 53, 69, 0.2)";
+          statusDiv.innerHTML = "<i class='fas fa-exclamation-circle'></i> Oops! Something went wrong. Please try again or email directly.";
+          
+          setTimeout(() => {
+            submitIcon.className = "fas fa-paper-plane";
+            submitText.textContent = "Send Message";
+            submitBtn.style.background = "";
+          }, 5000);
+        });
+      });
+    }
 
     // Initial check
     setTimeout(checkScrollPosition, 3500);
