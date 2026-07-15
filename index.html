@@ -606,16 +606,18 @@
 
     @media (max-width: 768px) {
       .home-3d-section {
-        transform: perspective(800px) rotateX(6deg) translateY(30px) scale(0.98);
-        margin-bottom: 1rem;
+        transform: translateY(30px) scale(0.98);
+        perspective: none;
+        transform-style: flat;
+        margin-bottom: 0.5rem;
       }
 
       .home-3d-section.opened {
-        transform: perspective(800px) rotateX(0deg) translateY(0) scale(1);
+        transform: translateY(0) scale(1);
       }
 
       .home-3d-section section {
-        padding: 4rem 1rem 3rem !important;
+        padding: 3rem 1rem 2rem !important;
       }
     }
 
@@ -1709,8 +1711,15 @@
         font-size: 1rem;
       }
 
+      .home-3d-section {
+        transform: translateY(20px) scale(0.98);
+        perspective: none;
+      }
+      .home-3d-section.opened {
+        transform: translateY(0) scale(1);
+      }
       .home-3d-section section {
-        padding: 2.5rem 0.9rem 2rem !important;
+        padding: 2rem 0.9rem 1.5rem !important;
       }
 
       .skills-grid {
@@ -1819,8 +1828,15 @@
         padding: 1rem 1.2rem;
       }
 
+      .home-3d-section {
+        transform: translateY(15px) scale(0.98);
+        perspective: none;
+      }
+      .home-3d-section.opened {
+        transform: translateY(0) scale(1);
+      }
       .home-3d-section section {
-        padding: 2rem 0.7rem 1.5rem !important;
+        padding: 1.5rem 0.7rem 1rem !important;
       }
 
       .tl-item {
