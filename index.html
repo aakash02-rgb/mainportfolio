@@ -2756,6 +2756,9 @@
 
     function switchPage(pageId) {
       if (!pages.includes(pageId) || activePageId === pageId) return;
+      if (location.hash !== '#' + pageId) {
+        history.pushState(null, '', '#' + pageId);
+      }
       const loader = document.getElementById('pageLoader');
       if (loader) loader.classList.add('active');
 
@@ -3047,6 +3050,19 @@
       });
     }
     setupContactForm(document.getElementById('contact-form'));
+
+    // Hash-based URL routing
+    window.addEventListener('hashchange', function() {
+      const hash = location.hash.replace('#', '') || 'home';
+      if (pages.includes(hash) && hash !== activePageId) {
+        switchPage(hash);
+      }
+    });
+
+    const initHash = location.hash.replace('#', '') || 'home';
+    if (pages.includes(initHash) && initHash !== 'home') {
+      setTimeout(function() { switchPage(initHash); }, 100);
+    }
 
     // Initial check
     setTimeout(checkScrollPosition, 3500);
